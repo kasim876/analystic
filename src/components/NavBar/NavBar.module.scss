@@ -1,12 +1,17 @@
 @import "../../styles/mixins";
 
 .nav {
+  --nav-offset: #{rem(40px)};
+
+  position: sticky;
+  top: var(--nav-offset);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 4px;
   padding: rem(44px) rem(25px);
-  height: 100vh;
+  width: 100%;
+  height: calc(100vh - var(--nav-offset) * 2);
   max-width: rem(260px);
   background-color: var(--blue);
 }

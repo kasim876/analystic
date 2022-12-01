@@ -1,0 +1,20 @@
+:root {
+  // colors
+
+  --primary: #2f6d5f;
+  --secondary: #eb874f;
+  --gradient: linear-gradient(55.62deg, #233a35 24.8%, #3ba38b 121.89%);
+  --green: #e5f3ef;
+  --white: #fff;
+  --black: #000;
+
+  // values
+
+  --content-width: #{em(1130px)};
+  --container-offset: #{em(15px)};
+  --section-offset: #{em(65px)};
+
+  // fonts
+
+  --font-family: "Raleway", sans-serif;
+}

@@ -2,7 +2,6 @@ import styles from "./NavBar.module.scss";
 
 import logo from "../../assets/logo.png";
 import sprite from "./sprite.svg";
-import exit from "../../assets/svg/exit.svg";
 
 import navItems from "./data";
 

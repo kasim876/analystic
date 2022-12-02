@@ -5,12 +5,13 @@ import './styles/App.scss';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Home from './pages/Home';
+import News from './pages/News';
 
 
 function App() {
   return (
     <>
-      <Home></Home>
+      <News></News>
     </>
   );
 }

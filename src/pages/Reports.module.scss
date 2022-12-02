@@ -1,0 +1,54 @@
+@import "../styles/mixins";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30px);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: rem(30px);
+}
+
+.btn {
+  max-width: rem(350px);
+}
+
+.warning {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: rem(40px);
+  background-image: url("../assets/svg/star.svg");
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  a {
+    text-decoration: underline;
+    color: var(--dark-gray);
+    transition: color 0.3s ease-in-out;
+
+    &:focus-visible {
+      outline: none;
+      color: var(--red);
+    }
+
+    @include hover {
+      color: var(--red);
+    }
+  }
+}
+
+.disableRow {
+  .btn {
+    border-color: var(--dark-gray);
+    background-color: var(--dark-gray);
+    pointer-events: none;
+  }
+
+  .warning {
+    display: flex;
+  }
+}

@@ -6,12 +6,12 @@ import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Home from './pages/Home';
 import News from './pages/News';
-
+import ReportsPublic from './pages/ReportsPublic';
 
 function App() {
   return (
     <>
-      <Home></Home>
+      <ReportsPublic></ReportsPublic>
     </>
   );
 }

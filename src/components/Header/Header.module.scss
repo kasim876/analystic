@@ -20,8 +20,15 @@
 }
 
 .notice {
+  border-radius: rem(4px);
+
   svg {
     display: block;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
   }
 }
 

@@ -21,7 +21,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 0 var(--container-offset);
+  padding: var(--container-offset-v) var(--container-offset);
   max-width: calc(var(--content-width) + var(--container-offset) * 2);
 }
 
@@ -101,5 +101,10 @@ address {
 
 .text-md {
   font-size: 1rem;
+  line-height: 150%;
+}
+
+.text-xs {
+  font-size: rem(12.8px);
   line-height: 150%;
 }

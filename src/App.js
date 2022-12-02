@@ -11,7 +11,7 @@ import News from './pages/News';
 function App() {
   return (
     <>
-      <News></News>
+      <Home></Home>
     </>
   );
 }

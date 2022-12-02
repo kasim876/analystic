@@ -11,22 +11,22 @@ const Home = () => {
       <div className="content">
         <Header title="Главная" name="Лукашенко Максим" />
         <ul className={'list-reset' + ' ' + styles.list}>
-          <li className={styles.item}>
+          <li className={styles.item} style={{order: 1}}>
             <h2 className={styles.subtitle}>Личный кабинет</h2>
             <a href="/" className={'text-md' + ' ' + styles.link}>Перейти в личный кабинет</a>
           </li>
-          <li className={styles.item + ' ' + styles.activeItem}>
+          <li className={styles.item} style={{order: 3}}>
+            <h2 className={styles.subtitle}>Отчёты</h2>
+            <a href="/" className={'text-md' + ' ' + styles.link}>Создать общедоступный отчет</a>
+            <a href="/" className={'text-md' + ' ' + styles.link}>Создать индивидуальный отчет</a>
+          </li>
+          <li className={styles.item + ' ' + styles.activeItem} style={{order: 2}}>
             <h2 className={styles.subtitle}>Новости</h2>
             <NewsArticle title="Название новости" date="22.01.2022" datetime="2022-01-22" className={styles.article}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus magnis mattis volutpat id magna enim dui, ornare sagittis.<br/>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus magnis mattis volutpat id magna enim dui, ornare sagittis.
             </NewsArticle>
             <a href="/" className={'text-md' + ' ' + styles.link}>Перейти ко всем новостям</a>
-          </li>
-          <li className={styles.item}>
-            <h2 className={styles.subtitle}>Отчёты</h2>
-            <a href="/" className={'text-md' + ' ' + styles.link}>Создать общедоступный отчет</a>
-            <a href="/" className={'text-md' + ' ' + styles.link}>Создать индивидуальный отчет</a>
           </li>
         </ul>
       </div>

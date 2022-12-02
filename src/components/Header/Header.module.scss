@@ -1,0 +1,37 @@
+@import "../../styles/mixins";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 120%;
+  color: var(--blue);
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: rem(18px);
+}
+
+.notice {
+  svg {
+    display: block;
+  }
+}
+
+.user {
+  color: var(--gray);
+
+  span {
+    font-weight: 700;
+    font-size: rem(20px);
+    line-height: 120%;
+    color: var(--black);
+  }
+}

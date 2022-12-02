@@ -4,12 +4,13 @@ import './styles/App.scss';
 
 import Login from './pages/Login';
 import Registration from './pages/Registration';
+import Home from './pages/Home';
 
 
 function App() {
   return (
     <>
-      <Registration></Registration>
+      <Home></Home>
     </>
   );
 }

@@ -1,0 +1,50 @@
+@import "../styles/mixins";
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: rem(30px);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  border-radius: rem(4px);
+  padding: rem(40px);
+  box-shadow: 0 0 20px rgba(10 36 99 / 20%);
+}
+
+.activeItem {
+  grid-row: 2 span;
+}
+
+.subtitle {
+  margin-bottom: 0.5em;
+  font-size: rem(40px);
+  line-height: 120%;
+  color: var(--blue);
+}
+
+.link {
+  display: inline-block;
+  text-decoration: underline;
+  color: var(--gray);
+  transition: color 0.3s ease-in-out;
+
+  &:not(:last-child) {
+    margin-bottom: rem(15px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    color: var(--red);
+  }
+
+  @include hover {
+    color: var(--red);
+  }
+}
+
+.article {
+  margin-bottom: auto;
+}

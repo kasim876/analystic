@@ -99,6 +99,14 @@ address {
   cursor: pointer;
 }
 
+.content {
+  display: grid;
+  margin-left: auto;
+  width: 100%;
+  max-width: rem(825px);
+  gap: rem(50px);
+}
+
 .text-md {
   font-size: 1rem;
   line-height: 150%;

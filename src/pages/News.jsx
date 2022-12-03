@@ -11,7 +11,7 @@ const News = () => {
       <div className="content">
         <Header title="Новости" name="Лукашенко Максим" />
         <main>
-          <h2 className={styles.title}>Последние новости</h2>
+          <h2 className="subtitle">Последние новости</h2>
           <ul className={"list-reset" + ' ' + styles.list}>
             <li>
               <NewsArticle title="Название новости" date="22.01.2022" datetime="2022-01-22">

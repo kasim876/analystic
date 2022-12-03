@@ -1,11 +1,5 @@
 @import "../styles/mixins";
 
-.title {
-  margin-bottom: em(30px, 24px);
-  font-size: rem(24px);
-  line-height: 120%;
-}
-
 .list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

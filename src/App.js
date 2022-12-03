@@ -9,11 +9,12 @@ import News from './pages/News';
 import ReportsPublic from './pages/ReportsPublic';
 import ReportsPersonal from './pages/ReportsPersonal';
 import ReportsCreate from './pages/ReportsCreate';
+import Packages from './pages/Packages';
 
 function App() {
   return (
     <>
-      <ReportsCreate></ReportsCreate>
+      <Packages></Packages>
     </>
   );
 }

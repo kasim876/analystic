@@ -8,11 +8,12 @@ import Home from './pages/Home';
 import News from './pages/News';
 import ReportsPublic from './pages/ReportsPublic';
 import ReportsPersonal from './pages/ReportsPersonal';
+import ReportsCreate from './pages/ReportsCreate';
 
 function App() {
   return (
     <>
-      <ReportsPersonal></ReportsPersonal>
+      <ReportsCreate></ReportsCreate>
     </>
   );
 }

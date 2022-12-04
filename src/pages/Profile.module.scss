@@ -14,6 +14,12 @@
   gap: 0.5rem;
 }
 
+.label {
+  span {
+    color: var(--red);
+  }
+}
+
 .input {
   border: 1px solid var(--gray);
   border-radius: 4px;
@@ -42,6 +48,7 @@
 
 .row {
   display: flex;
+  width: 100%;
   gap: rem(30px);
 
   &:not(:last-child) {
@@ -73,5 +80,14 @@
 
   th {
     text-align: left;
+  }
+}
+
+.warning {
+  display: block;
+  margin-bottom: rem(30px);
+
+  span {
+    color: var(--red);
   }
 }

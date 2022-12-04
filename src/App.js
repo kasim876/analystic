@@ -11,11 +11,12 @@ import ReportsPersonal from './pages/ReportsPersonal';
 import ReportsCreate from './pages/ReportsCreate';
 import Packages from './pages/Packages';
 import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
 
 function App() {
   return (
     <>
-      <Profile></Profile>
+      <ProfileEdit></ProfileEdit>
     </>
   );
 }

@@ -10,11 +10,12 @@ import ReportsPublic from './pages/ReportsPublic';
 import ReportsPersonal from './pages/ReportsPersonal';
 import ReportsCreate from './pages/ReportsCreate';
 import Packages from './pages/Packages';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <>
-      <Packages></Packages>
+      <Profile></Profile>
     </>
   );
 }

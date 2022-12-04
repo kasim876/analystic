@@ -1,20 +1,20 @@
 @import "../../styles/mixins";
 
-.input {
-  border: 1px solid currentcolor;
+.root {
+  border: 1px solid var(--gray);
   border-radius: 4px;
   padding: 0 rem(20px);
   width: 100%;
   height: rem(50px);
-  color: var(--gray);
+  color: var(--black);
 
   &::placeholder {
-    color: currentcolor;
+    color: var(--gray);
   }
 
   &:focus {
     outline: none;
-    color: var(--black);
+    border-color: var(--black);
 
     &::placeholder {
       font-size: 0;

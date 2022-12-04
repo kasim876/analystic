@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 const Button = (props) => {
   return (
     <button
-      className={props.className ? 'btn-reset text-md' + ' ' + styles.btn + ' ' + props.className : 'btn-reset text-md' + ' ' + styles.btn}
+      className={props.className ? 'btn-reset text-md' + ' ' + styles.root + ' ' + props.className : 'btn-reset text-md' + ' ' + styles.root}
       type={props.type}
       onClick={props.click}
     >

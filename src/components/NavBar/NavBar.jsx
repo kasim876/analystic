@@ -1,3 +1,5 @@
+import { NavLink, Link } from "react-router-dom";
+
 import styles from "./NavBar.module.scss";
 
 import logo from "../../assets/logo.png";
@@ -11,12 +13,12 @@ const NavList = () => {
       <ul className={'list-reset' + ' ' + styles.list}>
         {navItems.map(el => (
           <li key={el.link} className={styles.item}>
-            <a href={el.link} className={'text-md' + ' ' + styles.link}>
+            <NavLink to={el.link} className={({ isActive }) => isActive ? 'text-md' + ' ' + styles.link + ' ' + styles.activeLink : 'text-md' + ' ' + styles.link}>
               <svg width="24" height="24" className={styles.icon}>
                 <use xlinkHref={[sprite, el.icon].join("")}></use>
               </svg>
               <span>{el.text}</span>
-            </a>  
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -27,7 +29,7 @@ const NavList = () => {
 const NavBar = () => {
   return (
     <aside className={styles.nav}>
-      <a className={styles.logo} href="/"><img src={logo} alt="logo" /></a>
+      <Link className={styles.logo} to="/"><img src={logo} alt="logo" /></Link>
       <NavList />
       <button className={'btn-reset text-md' + ' ' + styles.logout}>
         <svg width="24" height="24" className={styles.icon}>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
@@ -46,7 +47,7 @@ const Registration = () => {
       </form>
       <div className={styles.bottom}>
           <span className="text-md">Вы зарегестрированы?</span>
-          <a href="/" className={'text-md' + ' ' + styles.link}>Войти</a>
+          <Link to="/login" className={'text-md' + ' ' + styles.link}>Войти</Link>
       </div>
     </div>
   )

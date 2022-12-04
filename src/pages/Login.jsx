@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
@@ -15,7 +16,7 @@ const Login = () => {
   
   return (
     <div className={'container' + ' ' + styles.container}>
-      <a href="/"><img src={logo} alt="logo" /></a>
+      <Link to="/"><img src={logo} alt="logo" /></Link>
       <h1 className={styles.title}>Вход</h1>
       <form className={styles.form}>
         <label className={styles.field}>
@@ -30,7 +31,7 @@ const Login = () => {
       </form>
       <div className={styles.bottom}>
           <span className="text-md">Вы не зарегестрированы?</span>
-          <a href="/" className={'text-md' + ' ' + styles.link}>Регистрация</a>
+          <Link to="/registration" className={'text-md' + ' ' + styles.link}>Регистрация</Link>
       </div>
     </div>
   )

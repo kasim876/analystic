@@ -60,6 +60,11 @@
   }
 }
 
+.activeLink {
+  color: var(--white);
+  pointer-events: none;
+}
+
 .icon {
   fill: currentcolor;
 }

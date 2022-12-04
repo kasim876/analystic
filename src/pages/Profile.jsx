@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Profile.module.scss";
 
@@ -21,7 +22,7 @@ const Profile = () => {
             <div className={styles.field}>
               <span className={'text-md' + ' ' + styles.label}>Ваш пакет:</span>
               <input className={'input-reset text-md' + ' ' + styles.input} value="Ваш пакет" placeholder="Информация отсутствует" disabled />
-              <a href="/" className={'text-md' + ' ' + styles.link}>Перейти к пакетам</a>
+              <Link to="/packages" className={'text-md' + ' ' + styles.link}>Перейти к пакетам</Link>
             </div>
           </div>
           <div className={styles.section}>

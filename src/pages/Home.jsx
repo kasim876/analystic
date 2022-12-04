@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styles from "./Home.module.scss";
 
 import NavBar from "../components/NavBar/NavBar"
@@ -14,12 +16,12 @@ const Home = () => {
           <ul className={'list-reset' + ' ' + styles.list}>
             <li className={styles.item} style={{order: 1}}>
               <h2 className={styles.subtitle}>Личный кабинет</h2>
-              <a href="/" className={'text-md' + ' ' + styles.link}>Перейти в личный кабинет</a>
+              <Link to="/profile" className={'text-md' + ' ' + styles.link}>Перейти в личный кабинет</Link>
             </li>
             <li className={styles.item} style={{order: 3}}>
               <h2 className={styles.subtitle}>Отчёты</h2>
-              <a href="/" className={'text-md' + ' ' + styles.link}>Создать общедоступный отчет</a>
-              <a href="/" className={'text-md' + ' ' + styles.link}>Создать индивидуальный отчет</a>
+              <Link to="/reports/public" className={'text-md' + ' ' + styles.link}>Создать общедоступный отчет</Link>
+              <Link to="/reports/personal" className={'text-md' + ' ' + styles.link}>Создать индивидуальный отчет</Link>
             </li>
             <li className={styles.item + ' ' + styles.activeItem} style={{order: 2}}>
               <h2 className={styles.subtitle}>Новости</h2>
@@ -27,7 +29,7 @@ const Home = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus magnis mattis volutpat id magna enim dui, ornare sagittis.<br/>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Netus magnis mattis volutpat id magna enim dui, ornare sagittis.
               </NewsArticle>
-              <a href="/" className={'text-md' + ' ' + styles.link}>Перейти ко всем новостям</a>
+              <Link to="/news" className={'text-md' + ' ' + styles.link}>Перейти ко всем новостям</Link>
             </li>
           </ul>
         </main>

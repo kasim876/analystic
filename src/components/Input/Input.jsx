@@ -8,7 +8,9 @@ const Input = (props) => {
       placeholder={props.placeholder}
       value={props.value}
       onChange={props.change}
-      className={props.className ? 'input-reset text-md' + ' ' + styles.root + ' ' + props.className : 'input-reset text-md' + ' ' + styles.root} />
+      className={props.className ? 'input-reset text-md' + ' ' + styles.root + ' ' + props.className : 'input-reset text-md' + ' ' + styles.root}
+      disabled={props.disabled}
+    />
   )
 }
 

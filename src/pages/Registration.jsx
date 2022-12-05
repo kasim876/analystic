@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input/Input"
@@ -12,11 +12,29 @@ import mail from "../assets/svg/mail.svg";
 import lock from "../assets/svg/lock.svg";
 
 const Registration = () => {
+  const [isCompany, setIsCompany] = useState(false);
   const [company, setCompany] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    const emailPattern = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})$/;
+    
+    if (
+      (!isCompany || company.length > 1) &&
+      fullName.length > 3 &&
+      emailPattern.test(email) &&
+      password.length > 3 &&
+      password === passwordRepeat
+    ) {
+      return setDisabled(false)
+    }
+    
+    setDisabled(true)
+  })
   
   return (
     <div className={'container' + ' ' + styles.container}>
@@ -43,7 +61,7 @@ const Registration = () => {
           <img src={lock} aria-hidden="true" />
           <Input type="password" placeholder="Повторите пароль" name="password" value={passwordRepeat} change={(e) => setPasswordRepeat(e.target.value)} className={styles.input} />
         </label>
-        <Button type="submit">Зарегестрироваться</Button>
+        <Button type="submit" disabled={disabled}>Зарегестрироваться</Button>
       </form>
       <div className={styles.bottom}>
           <span className="text-md">Вы зарегестрированы?</span>

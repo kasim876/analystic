@@ -6,6 +6,7 @@ const Button = (props) => {
       className={props.className ? 'btn-reset text-md' + ' ' + styles.root + ' ' + props.className : 'btn-reset text-md' + ' ' + styles.root}
       type={props.type}
       onClick={props.click}
+      disabled={props.disabled}
     >
       {props.children}
     </button>

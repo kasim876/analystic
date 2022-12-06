@@ -1,0 +1,31 @@
+@import "../../styles/mixins";
+
+.radio {
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+
+  &:checked + .caption::before {
+    border-color: var(--red);
+    background-color: var(--red);
+  }
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  gap: rem(15px);
+
+  &::before {
+    content: "";
+    display: block;
+    border: 1px solid var(--gray);
+    border-radius: 50%;
+    width: rem(24px);
+    height: rem(24px);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+}

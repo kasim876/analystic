@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 import styles from "./NavBar.module.scss";
@@ -6,6 +7,8 @@ import logo from "../../assets/logo.png";
 import sprite from "./sprite.svg";
 
 import navItems from "./data";
+
+import { UserContext } from "../../App";
 
 const NavList = () => {
   return (
@@ -27,11 +30,20 @@ const NavList = () => {
 }
 
 const NavBar = () => {
+  const {user} = useContext(UserContext);
+  
+  const logout = () => {
+    localStorage.removeItem("token");
+
+    user.setIsAuth(false);
+    user.setUser(null);
+  }
+
   return (
     <aside className={styles.nav}>
       <Link className={styles.logo} to="/"><img src={logo} alt="logo" /></Link>
       <NavList />
-      <button className={'btn-reset text-md' + ' ' + styles.logout}>
+      <button className={'btn-reset text-md' + ' ' + styles.logout} onClick={logout}>
         <svg width="24" height="24" className={styles.icon}>
           <use xlinkHref={[sprite, "#exit"].join("")}></use>
         </svg>

@@ -9,7 +9,7 @@ const ReportsPublic = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Общедоступные отчеты" name="Лукашенко Максим" />
+        <Header title="Общедоступные отчеты" />
         <main>
           <ul className={'list-reset' + ' ' + styles.list}>
             <li className={styles.row}>

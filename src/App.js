@@ -1,14 +1,20 @@
+import { createContext, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import './styles/App.scss';
 
 import AppRouter from './components/AppRouter';
+import UserStore from './store/UserStore';
 
-function App() {
+export const UserContext = createContext(null);
+
+const App = () => {
   return (
-    <BrowserRouter>
-      <AppRouter />
-    </BrowserRouter>
+    <UserContext.Provider value={{user: new UserStore}}>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

@@ -9,7 +9,7 @@ const News = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Новости" name="Лукашенко Максим" />
+        <Header title="Новости" />
         <main>
           <h2 className="subtitle">Последние новости</h2>
           <ul className={"list-reset" + ' ' + styles.list}>

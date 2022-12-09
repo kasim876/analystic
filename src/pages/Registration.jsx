@@ -1,21 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
 import Radio from "../components/Radio/Radio";
 
+import { UserContext } from "../App";
+
 import styles from "./Auth.module.scss";
 
+import { registration } from "../http/userAPI";
+
 import logo from "../assets/logo.png";
-import user from "../assets/svg/user.svg"
+import userIcon from "../assets/svg/user.svg"
 import mail from "../assets/svg/mail.svg";
 import lock from "../assets/svg/lock.svg";
 
 const Registration = () => {
+  const {user} = useContext(UserContext);
+  
   const [isCompany, setIsCompany] = useState(true);
   const [company, setCompany] = useState('');
-  const [name, setName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
@@ -35,18 +41,31 @@ const Registration = () => {
 
     setDisabled(true)
   })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+  
+    try {
+      const data = await registration(email, password, isCompany, company, fullName)
+
+      user.setIsAuth(true);
+      user.setUser(data);
+    } catch (err) {
+      console.log(err.response.data)
+    }
+  }
   
   return (
     <div className={'container' + ' ' + styles.container}>
       <a href="/"><img src={logo} alt="logo" /></a>
       <h1 className={styles.title}>Регистрация</h1>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <Radio name="is-company" value="true" caption="Юридическое лицо" change={ (e) => setIsCompany(Boolean(e.target.value)) } />
           <Radio name="is-company" value="" caption="Физическое лицо" change={ (e) => setIsCompany(Boolean(e.target.value)) } />
         </div>
         <label className={styles.field}>
-          <img src={user} aria-hidden="true" />
+          <img src={userIcon} aria-hidden="true" />
           <Input
             type="text"
             placeholder="Название компании"
@@ -57,13 +76,13 @@ const Registration = () => {
           />
         </label>
         <label className={styles.field}>
-          <img src={user} aria-hidden="true" />
+          <img src={userIcon} aria-hidden="true" />
           <Input
             type="text"
             placeholder="Ф.И.О."
             name="name"
-            value={name}
-            change={ (e) => setName(e.target.value) }
+            value={fullName}
+            change={ (e) => setFullName(e.target.value) }
             className={styles.input}
           />
         </label>

@@ -9,7 +9,7 @@ const Packages = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Пакеты услуг" name="Лукашенко Максим" />
+        <Header title="Пакеты услуг" />
         <main>
           <ul className={'list-reset' + ' ' + styles.content}>
             <li>

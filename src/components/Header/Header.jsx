@@ -1,6 +1,12 @@
+import { useContext } from "react";
+
 import styles from "./Header.module.scss";
 
+import { UserContext } from "../../App";
+
 const Header = (props) => {
+  const {user} = useContext(UserContext)
+
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>{props.title}</h1>
@@ -18,7 +24,7 @@ const Header = (props) => {
             </defs>
           </svg>
         </button>
-        <p className={'text-xs' + ' ' + styles.user}>Добро пожаловать,<br/><span>{props.name}</span></p>
+        <p className={'text-xs' + ' ' + styles.user}>Добро пожаловать,<br/><span>{user.user.fullName}</span></p>
       </div>
     </header>
   )

@@ -1,29 +1,37 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 import { authRoutes, publicRoutes } from "../routes";
 import { HOME_ROUTE, LOGIN_ROUTE } from "../utils/consts";
 
-import { AuthContext } from "../index";
+import { UserContext } from "../App";
+import { observer } from "mobx-react-lite";
 
-import Home from "../pages/Home";
+const AppRouter = observer(() => {
+  const {user} = useContext(UserContext);
 
-const AppRouter = () => {
-  const isAuth = useContext(AuthContext)
+  const token = localStorage.getItem("token");
 
-  console.log(isAuth)
-  
+  useEffect(() => {
+    if (token) {
+      user.setIsAuth(true)
+      user.setUser(jwtDecode(token))
+    }
+  }, [])
+
   return (
     <Routes>
-      {!isAuth && authRoutes.map(({path, element}) => <Route key={path} path={path} element={element} />)}
+      {!user.isAuth && authRoutes.map(({path, element}) => <Route key={path} path={path} element={element} />)}
 
-      {isAuth && publicRoutes.map(({path, element}) => <Route key={path} path={path} element={element} /> )}
+      {user.isAuth && publicRoutes.map(({path, element}) => <Route key={path} path={path} element={element} /> )}
       
       <Route 
-        element={<Navigate to={isAuth ? HOME_ROUTE : LOGIN_ROUTE} />}
+        element={<Navigate to={user.isAuth ? HOME_ROUTE : LOGIN_ROUTE} />}
         path="*"
       />
     </Routes>
   )
-}
+})
 
 export default AppRouter

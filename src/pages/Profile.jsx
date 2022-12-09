@@ -15,7 +15,7 @@ const Profile = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Личный кабинет" name="Лукашенко Максим" />
+        <Header title="Личный кабинет" />
         <main>
           <div className={styles.section}>
             <h2 className="subtitle">Пакеты услуг</h2>

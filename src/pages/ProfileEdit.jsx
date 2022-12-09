@@ -19,7 +19,7 @@ const ProfileEdit = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Личный кабинет" name="Лукашенко Максим" />
+        <Header title="Личный кабинет" />
         <main>
           <form className={styles.section}>
             <h2 className="subtitle">Данные о пользователе</h2>

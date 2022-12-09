@@ -9,7 +9,7 @@ const ReportsPersonal = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Индивидуальные отчеты" name="Лукашенко Максим" />
+        <Header title="Индивидуальные отчеты" />
         <main>
           <ul className={'list-reset' + ' ' + styles.list}>
             <li className={styles.row}>

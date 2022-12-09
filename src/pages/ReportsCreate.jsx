@@ -9,7 +9,7 @@ const ReportsCreate = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Создание отчета" name="Лукашенко Максим" />
+        <Header title="Создание отчета" />
         <main>
           <h2 className="subtitle">Загрузите данные</h2>
           <Button className={styles.btn}>Выбрать файл на компьютере</Button>

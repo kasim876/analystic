@@ -11,7 +11,7 @@ const Home = () => {
     <div className="container">
       <NavBar></NavBar>
       <div className="content">
-        <Header title="Главная" name="Лукашенко Максим" />
+        <Header title="Главная" />
         <main>
           <ul className={'list-reset' + ' ' + styles.list}>
             <li className={styles.item} style={{order: 1}}>

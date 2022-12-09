@@ -1,8 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+
+import { UserContext } from "../App";
 
 import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
+
+import { login } from "../http/userAPI";
 
 import styles from "./Auth.module.scss";
 
@@ -10,9 +15,12 @@ import logo from "../assets/logo.png";
 import mail from "../assets/svg/mail.svg";
 import lock from "../assets/svg/lock.svg";
 
-const Login = () => {
+
+const Login = observer(() => {
+  const {user} = useContext(UserContext);
+
   const [email, setEmail] = useState('max.lukashenko2017@gmail.com');
-  const [password, setPassword] = useState('1234');
+  const [password, setPassword] = useState('12345');
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -24,12 +32,25 @@ const Login = () => {
     
     setDisabled(true)
   })
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+  
+    try {
+      const data = await login(email, password)
+
+      user.setIsAuth(true);
+      user.setUser(data);
+    } catch (err) {
+      console.log(err.response.data)
+    }
+  }
   
   return (
     <div className={'container' + ' ' + styles.container}>
       <Link to="/"><img src={logo} alt="logo" /></Link>
       <h1 className={styles.title}>Вход</h1>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.field}>
           <img src={mail} aria-hidden="true" />
           <Input
@@ -59,6 +80,6 @@ const Login = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Login

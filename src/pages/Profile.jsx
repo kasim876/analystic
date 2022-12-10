@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./Profile.module.scss";
@@ -8,7 +8,11 @@ import Header from "../components/Header/Header";
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
 
+import { UserContext } from "../index";
+
 const Profile = () => {
+  const {user} = useContext(UserContext);
+  
   const [email, setEmail] = useState('');
   
   return (
@@ -16,12 +20,14 @@ const Profile = () => {
       <NavBar></NavBar>
       <div className="content">
         <Header title="Личный кабинет" />
+        {user.user.isCompany
+        ?
         <main>
           <div className={styles.section}>
             <h2 className="subtitle">Пакеты услуг</h2>
             <div className={styles.field}>
               <span className={'text-md' + ' ' + styles.label}>Ваш пакет:</span>
-              <input className={'input-reset text-md' + ' ' + styles.input} value="Ваш пакет" placeholder="Информация отсутствует" disabled />
+              <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.package} placeholder="Информация отсутствует" disabled />
               <Link to="/packages" className={'text-md' + ' ' + styles.link}>Перейти к пакетам</Link>
             </div>
           </div>
@@ -30,21 +36,21 @@ const Profile = () => {
             <div className={styles.row}>
               <div className={styles.field}>
                 <span className={'text-md' + ' ' + styles.label}>Ф.И.О.:</span>
-                <input className={'input-reset text-md' + ' ' + styles.input} value="Лукашенко Максим Валентинович" placeholder="Информация отсутствует" disabled />
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.fullName} placeholder="Информация отсутствует" disabled />
               </div>
               <div className={styles.field}>
                 <span className={'text-md' + ' ' + styles.label}>Название компании:</span>
-                <input className={'input-reset text-md' + ' ' + styles.input} value="" placeholder="Информация отсутствует" disabled />
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.company} placeholder="Информация отсутствует" disabled />
               </div>
             </div>
             <div className={styles.row}>
               <div className={styles.field}>
                 <span className={'text-md' + ' ' + styles.label}>Должность:</span>
-                <input className={'input-reset text-md' + ' ' + styles.input} value="" placeholder="Информация отсутствует" disabled />
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.post} placeholder="Информация отсутствует" disabled />
               </div>
               <div className={styles.field}>
                 <span className={'text-md' + ' ' + styles.label}>E-mail:</span>
-                <input className={'input-reset text-md' + ' ' + styles.input} value="ustyugov.i@mail.com" placeholder="Информация отсутствует" disabled />
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.email} placeholder="Информация отсутствует" disabled />
               </div>
             </div>
             <div className={styles.row}>
@@ -122,6 +128,31 @@ const Profile = () => {
             </table>
           </div>
         </main>
+        :
+        <main>
+          <div className={styles.section}>
+            <h2 className="subtitle">Пакеты услуг</h2>
+            <div className={styles.field}>
+              <span className={'text-md' + ' ' + styles.label}>Ваш пакет:</span>
+              <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.package} placeholder="Информация отсутствует" disabled />
+              <Link to="/packages" className={'text-md' + ' ' + styles.link}>Перейти к пакетам</Link>
+            </div>
+          </div>
+          <div className={styles.section}>
+            <h2 className="subtitle">Данные о пользователе</h2>
+            <div className={styles.row}>
+              <div className={styles.field}>
+                <span className={'text-md' + ' ' + styles.label}>Ф.И.О.:</span>
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.fullName} placeholder="Информация отсутствует" disabled />
+              </div>
+              <div className={styles.field}>
+                <span className={'text-md' + ' ' + styles.label}>E-mail:</span>
+                <input className={'input-reset text-md' + ' ' + styles.input} value={user.user.email} placeholder="Информация отсутствует" disabled />
+              </div>
+            </div>
+          </div>
+        </main>
+        }
       </div>
     </div>
   )

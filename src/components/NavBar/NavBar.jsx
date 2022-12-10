@@ -8,7 +8,7 @@ import sprite from "./sprite.svg";
 
 import navItems from "./data";
 
-import { UserContext } from "../../App";
+import { UserContext } from "../../index";
 
 const NavList = () => {
   return (

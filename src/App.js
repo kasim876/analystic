@@ -1,20 +1,31 @@
-import { createContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import './styles/App.scss';
 
 import AppRouter from './components/AppRouter';
-import UserStore from './store/UserStore';
+import { UserContext } from "./index";
 
-export const UserContext = createContext(null);
+import { check } from "./http/userAPI";
 
 const App = () => {
+  const {user} = useContext(UserContext);
+
+  useEffect(() => {
+    check()
+      .then(res => {
+        user.setIsAuth(true);
+        user.setUser(res);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
   return (
-    <UserContext.Provider value={{user: new UserStore}}>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
-    </UserContext.Provider>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }
 

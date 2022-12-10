@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
-import { UserContext } from "../App";
+import { UserContext } from "../index";
 
 import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
@@ -42,7 +42,7 @@ const Login = observer(() => {
       user.setIsAuth(true);
       user.setUser(data);
     } catch (err) {
-      console.log(err.response.data)
+      alert(err.response.data.message)
     }
   }
   

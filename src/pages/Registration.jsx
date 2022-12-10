@@ -5,7 +5,7 @@ import Input from "../components/Input/Input"
 import Button from "../components/Button/Button"
 import Radio from "../components/Radio/Radio";
 
-import { UserContext } from "../App";
+import { UserContext } from "../index";
 
 import styles from "./Auth.module.scss";
 
@@ -51,7 +51,7 @@ const Registration = () => {
       user.setIsAuth(true);
       user.setUser(data);
     } catch (err) {
-      console.log(err.response.data)
+      alert(err.response.data.message)
     }
   }
   

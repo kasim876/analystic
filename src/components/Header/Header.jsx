@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import styles from "./Header.module.scss";
 
-import { UserContext } from "../../App";
+import { UserContext } from "../../index";
 
 const Header = (props) => {
   const {user} = useContext(UserContext)

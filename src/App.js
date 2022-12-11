@@ -11,7 +11,7 @@ import { check } from "./http/userAPI";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  
+
   const {user} = useContext(UserContext);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const App = () => {
         user.setUser(res);
       })
       .catch(err => {
-        console.log(err)
+
       })
       .finally(() => setLoading(false))
   }, [])

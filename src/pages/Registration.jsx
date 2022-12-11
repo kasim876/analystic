@@ -78,6 +78,7 @@ const Registration = () => {
             caption="Физическое лицо" 
             change={ (e) => {
               setIsCompany(Boolean(e.target.value))
+              setCompany('')
               setError('')
             }}
           />

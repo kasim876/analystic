@@ -19,8 +19,8 @@ import lock from "../assets/svg/lock.svg";
 const Login = observer(() => {
   const {user} = useContext(UserContext);
 
-  const [email, setEmail] = useState('max.lukashenko2017@gmail.com');
-  const [password, setPassword] = useState('12345');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState('');
 

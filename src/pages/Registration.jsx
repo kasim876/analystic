@@ -19,7 +19,7 @@ import lock from "../assets/svg/lock.svg";
 const Registration = () => {
   const {user} = useContext(UserContext);
   
-  const [isCompany, setIsCompany] = useState(true);
+  const [isCompany, setIsCompany] = useState(null);
   const [company, setCompany] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -32,6 +32,7 @@ const Registration = () => {
     const emailPattern = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})$/;
 
     if (
+      isCompany !== null &&
       (!isCompany || company.length > 1) &&
       emailPattern.test(email) &&
       password.length > 3 &&
@@ -81,7 +82,7 @@ const Registration = () => {
             }}
           />
         </div>
-        <label className={styles.field}>
+        <label className={isCompany ? styles.field : styles.field + ' ' + styles.disabledField}>
           <img src={userIcon} aria-hidden="true" />
           <Input
             type="text"
@@ -93,6 +94,7 @@ const Registration = () => {
               setError('')
             }}
             className={styles.input}
+            disabled={!isCompany}
           />
         </label>
         <label className={styles.field}>

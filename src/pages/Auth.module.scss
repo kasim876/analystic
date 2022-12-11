@@ -31,12 +31,17 @@
 
 .field {
   position: relative;
+  transition: opacity 0.3s;
 
   > img {
     position: absolute;
     left: rem(20px);
     top: rem(13px);
   }
+}
+
+.disabledField {
+  opacity: 0.3;
 }
 
 .input {

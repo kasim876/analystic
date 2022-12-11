@@ -26,6 +26,7 @@ const Registration = () => {
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const emailPattern = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})$/;
@@ -51,7 +52,7 @@ const Registration = () => {
       user.setIsAuth(true);
       user.setUser(data);
     } catch (err) {
-      alert(err.response.data.message)
+      setError(err.response.data.message)
     }
   }
   
@@ -59,10 +60,26 @@ const Registration = () => {
     <div className={'container' + ' ' + styles.container}>
       <a href="/"><img src={logo} alt="logo" /></a>
       <h1 className={styles.title}>Регистрация</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={error ? styles.form + ' ' + styles.wrongForm : styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <Radio name="is-company" value="true" caption="Юридическое лицо" change={ (e) => setIsCompany(Boolean(e.target.value)) } />
-          <Radio name="is-company" value="" caption="Физическое лицо" change={ (e) => setIsCompany(Boolean(e.target.value)) } />
+          <Radio
+            name="is-company"
+            value="true"
+            caption="Юридическое лицо"
+            change={ (e) => {
+              setIsCompany(Boolean(e.target.value))
+              setError('')
+            }}
+          />
+          <Radio
+            name="is-company"
+            value=""
+            caption="Физическое лицо" 
+            change={ (e) => {
+              setIsCompany(Boolean(e.target.value))
+              setError('')
+            }}
+          />
         </div>
         <label className={styles.field}>
           <img src={userIcon} aria-hidden="true" />
@@ -71,7 +88,10 @@ const Registration = () => {
             placeholder="Название компании"
             name="company"
             value={company}
-            change={ (e) => setCompany(e.target.value) }
+            change={ (e) => {
+              setCompany(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
@@ -82,7 +102,10 @@ const Registration = () => {
             placeholder="Ф.И.О."
             name="name"
             value={fullName}
-            change={ (e) => setFullName(e.target.value) }
+            change={ (e) => {
+              setFullName(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
@@ -93,7 +116,10 @@ const Registration = () => {
             placeholder="E-mail"
             name="email"
             value={email}
-            change={ (e) => setEmail(e.target.value) }
+            change={ (e) => {
+              setEmail(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
@@ -104,7 +130,10 @@ const Registration = () => {
             placeholder="Пароль"
             name="password"
             value={password}
-            change={ (e) => setPassword(e.target.value) }
+            change={ (e) => {
+              setPassword(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
@@ -115,10 +144,14 @@ const Registration = () => {
             placeholder="Повторите пароль"
             name="password"
             value={passwordRepeat}
-            change={ (e) => setPasswordRepeat(e.target.value) }
+            change={ (e) => {
+              setPasswordRepeat(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
+        <span className={'text-md' + ' ' + styles.warning}>{error}</span>
         <Button type="submit" disabled={disabled}>Зарегестрироваться</Button>
       </form>
       <div className={styles.bottom}>

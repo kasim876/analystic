@@ -61,3 +61,24 @@
     color: var(--red);
   }
 }
+
+.warning {
+  display: none;
+  color: var(--red);
+}
+
+.wrongForm {
+  .input {
+    border-color: var(--red);
+    padding-left: rem(60px);
+    color: var(--red);
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--red);
+    }
+  }
+
+  .warning {
+    display: block;
+  }
+}

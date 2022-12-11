@@ -22,6 +22,7 @@ const Login = observer(() => {
   const [email, setEmail] = useState('max.lukashenko2017@gmail.com');
   const [password, setPassword] = useState('12345');
   const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const emailPattern = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})$/;
@@ -42,7 +43,7 @@ const Login = observer(() => {
       user.setIsAuth(true);
       user.setUser(data);
     } catch (err) {
-      alert(err.response.data.message)
+      setError(err.response.data.message)
     }
   }
   
@@ -50,14 +51,17 @@ const Login = observer(() => {
     <div className={'container' + ' ' + styles.container}>
       <Link to="/"><img src={logo} alt="logo" /></Link>
       <h1 className={styles.title}>Вход</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={error ? styles.form + ' ' + styles.wrongForm : styles.form} onSubmit={handleSubmit}>
         <label className={styles.field}>
           <img src={mail} aria-hidden="true" />
           <Input
             type="email"
             placeholder="E-mail"
             name="email" value={email}
-            change={ (e) => setEmail(e.target.value) }
+            change={ (e) => {
+              setEmail(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
@@ -68,10 +72,14 @@ const Login = observer(() => {
             placeholder="Пароль"
             name="password"
             value={password}
-            change={ (e) => setPassword(e.target.value) }
+            change={ (e) => {
+              setPassword(e.target.value)
+              setError('')
+            }}
             className={styles.input}
           />
         </label>
+        <span className={'text-md' + ' ' + styles.warning}>{error}</span>
         <Button type="submit" disabled={disabled}>Войти</Button>
       </form>
       <div className={styles.bottom}>

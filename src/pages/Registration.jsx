@@ -33,7 +33,7 @@ const Registration = () => {
 
     if (
       isCompany !== null &&
-      (!isCompany || company.length > 1) &&
+      (!isCompany || company) &&
       emailPattern.test(email) &&
       password.length > 3 &&
       password === passwordRepeat
@@ -78,7 +78,7 @@ const Registration = () => {
             caption="Физическое лицо" 
             change={ (e) => {
               setIsCompany(Boolean(e.target.value))
-              setCompany('')
+              setCompany(null)
               setError('')
             }}
           />
